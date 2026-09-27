@@ -340,9 +340,7 @@ document.getElementById("tc-btn").addEventListener("click", () => {
             const msg = document.createElement("div"); msg.textContent = "エラー: " + (j.error || "");
             const pre = document.createElement("pre");
             pre.style.cssText = "white-space:pre-wrap;font-size:11px;max-height:260px;overflow:auto;background:#f3efe6;padding:8px;border-radius:6px;color:#201c16";
-            pre.textContent = (j.log || "(ログなし)").split("
-").slice(-40).join("
-");
+            pre.textContent = (j.log || "(ログなし)").split("\\n").slice(-40).join("\\n");
             st.appendChild(msg); st.appendChild(pre);
           }
         }
