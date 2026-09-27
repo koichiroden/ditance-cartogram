@@ -44,6 +44,20 @@ PREFS = ["hokkaido", "aomori", "iwate", "miyagi", "akita", "yamagata", "fukushim
          "kagoshima", "okinawa"]
 
 
+def default_workers():
+    """並列数の既定値。1本あたりメモリを最大1.5GBほど使う(画像処理+ffmpeg)ので、
+    CPUコア数だけで決めるとメモリ不足でプロセスごと強制終了されることがある。"""
+    cpu = max(1, (os.cpu_count() or 2) // 2)
+    try:
+        with open("/proc/meminfo") as f:
+            info = {l.split(":")[0]: int(l.split()[1]) for l in f}
+        avail_gb = info.get("MemAvailable", info.get("MemTotal", 0)) / 1024 / 1024
+        mem = max(1, int(avail_gb / 1.5))
+    except Exception:  # noqa: BLE001
+        mem = 2
+    return max(1, min(cpu, mem))
+
+
 def render_one(cfg_path, out_dir, fast, keep_temp):
     # 子プロセス内で読み込む(フォント・地図データの読み込みを各プロセスで行う)
     os.chdir(ROOT)
@@ -69,8 +83,8 @@ def main():
     ap.add_argument("--configs", default="configs/timecarto", help="configのフォルダ")
     ap.add_argument("--out-dir", default="output")
     ap.add_argument("--fast", action="store_true", help="10fpsの確認用プレビュー")
-    ap.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 2) // 2),
-                    help="同時に生成する本数(既定: CPUコア数の半分)")
+    ap.add_argument("--workers", type=int, default=default_workers(),
+                    help="同時に生成する本数(既定: CPUコア数の半分と、空きメモリ1.5GBあたり1本の小さい方)")
     ap.add_argument("--skip-existing", action="store_true", help="既に mp4 がある県は飛ばす")
     ap.add_argument("--keep-temp", action="store_true", help="音声wav・ベースマップpngも残す")
     ap.add_argument("--zip", default="", help="できた mp4 と最終フレームpngをこのzipにまとめる")

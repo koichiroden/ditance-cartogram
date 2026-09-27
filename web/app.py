@@ -766,7 +766,7 @@ batch_jobs = {}
 def _run_timecarto_batch(job_id, mode, only, fast, zip_name):
     # Webサーバーと同じPython(仮想環境を含む)で実行する
     cmd = [sys.executable, "tools/render_timecarto_all.py", "--mode", mode,
-           "--zip", str(OUTPUT_DIR / zip_name), "--skip-existing"]
+           "--zip", str(OUTPUT_DIR / zip_name), "--skip-existing", "--workers", "2"]
     if only:
         cmd += ["--only", only]
     if fast:
