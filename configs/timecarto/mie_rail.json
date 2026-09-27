@@ -1,0 +1,436 @@
+{
+ "type": "time_cartogram",
+ "slug": "timecarto_mie_rail",
+ "title_line1": "近いのに遠い？遠いのに近い？",
+ "title_line2": "三重からの『時間距離』",
+ "mode": "rail",
+ "base_kmh": 200,
+ "gap_sec": 1,
+ "move_sec": 0.6,
+ "intro_sec": 2,
+ "outro_hold_sec": 5,
+ "order": "code",
+ "origin": {
+  "pref": "三重",
+  "station": "津",
+  "lat": 34.7342,
+  "lon": 136.5104
+ },
+ "destinations": [
+  {
+   "pref": "北海道",
+   "station": "札幌",
+   "lat": 43.0687,
+   "lon": 141.3508,
+   "minutes": 641,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → はやぶさ → 北斗"
+  },
+  {
+   "pref": "青森",
+   "station": "青森",
+   "lat": 40.8286,
+   "lon": 140.7342,
+   "minutes": 365,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → はやぶさ → 奥羽本線"
+  },
+  {
+   "pref": "岩手",
+   "station": "盛岡",
+   "lat": 39.7016,
+   "lon": 141.1365,
+   "minutes": 301,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → はやぶさ"
+  },
+  {
+   "pref": "宮城",
+   "station": "仙台",
+   "lat": 38.2601,
+   "lon": 140.8824,
+   "minutes": 261,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → はやぶさ"
+  },
+  {
+   "pref": "秋田",
+   "station": "秋田",
+   "lat": 39.7169,
+   "lon": 140.1297,
+   "minutes": 388,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → こまち"
+  },
+  {
+   "pref": "山形",
+   "station": "山形",
+   "lat": 38.2485,
+   "lon": 140.3279,
+   "minutes": 317,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → つばさ"
+  },
+  {
+   "pref": "福島",
+   "station": "福島",
+   "lat": 37.7541,
+   "lon": 140.4593,
+   "minutes": 251,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → つばさ"
+  },
+  {
+   "pref": "茨城",
+   "station": "水戸",
+   "lat": 36.3708,
+   "lon": 140.4764,
+   "minutes": 246,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → 常磐線"
+  },
+  {
+   "pref": "栃木",
+   "station": "宇都宮",
+   "lat": 36.5592,
+   "lon": 139.8984,
+   "minutes": 219,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → やまびこ"
+  },
+  {
+   "pref": "群馬",
+   "station": "前橋",
+   "lat": 36.3833,
+   "lon": 139.0734,
+   "minutes": 251,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → とき → 両毛線"
+  },
+  {
+   "pref": "埼玉",
+   "station": "浦和",
+   "lat": 35.8587,
+   "lon": 139.6571,
+   "minutes": 196,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → 宇都宮線"
+  },
+  {
+   "pref": "千葉",
+   "station": "千葉",
+   "lat": 35.613,
+   "lon": 140.1133,
+   "minutes": 211,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → 総武快速線"
+  },
+  {
+   "pref": "東京",
+   "station": "東京",
+   "lat": 35.6812,
+   "lon": 139.7671,
+   "minutes": 161,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "神奈川",
+   "station": "横浜",
+   "lat": 35.4658,
+   "lon": 139.6223,
+   "minutes": 189,
+   "air": false,
+   "route": "近鉄特急 → ひかり"
+  },
+  {
+   "pref": "新潟",
+   "station": "新潟",
+   "lat": 37.912,
+   "lon": 139.0613,
+   "minutes": 268,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → とき"
+  },
+  {
+   "pref": "富山",
+   "station": "富山",
+   "lat": 36.7013,
+   "lon": 137.2133,
+   "minutes": 234,
+   "air": false,
+   "route": "近鉄特急 → サンダーバード → かがやき"
+  },
+  {
+   "pref": "石川",
+   "station": "金沢",
+   "lat": 36.5781,
+   "lon": 136.6478,
+   "minutes": 214,
+   "air": false,
+   "route": "近鉄特急 → サンダーバード → かがやき"
+  },
+  {
+   "pref": "福井",
+   "station": "福井",
+   "lat": 36.0621,
+   "lon": 136.2232,
+   "minutes": 191,
+   "air": false,
+   "route": "近鉄特急 → サンダーバード → かがやき"
+  },
+  {
+   "pref": "山梨",
+   "station": "甲府",
+   "lat": 35.667,
+   "lon": 138.5689,
+   "minutes": 262,
+   "air": false,
+   "route": "近鉄特急 → ひかり → ふじかわ"
+  },
+  {
+   "pref": "長野",
+   "station": "長野",
+   "lat": 36.6432,
+   "lon": 138.1888,
+   "minutes": 240,
+   "air": false,
+   "route": "近鉄特急 → しなの"
+  },
+  {
+   "pref": "岐阜",
+   "station": "岐阜",
+   "lat": 35.4094,
+   "lon": 136.7564,
+   "minutes": 85,
+   "air": false,
+   "route": "近鉄特急 → しらさぎ"
+  },
+  {
+   "pref": "静岡",
+   "station": "静岡",
+   "lat": 34.9719,
+   "lon": 138.389,
+   "minutes": 117,
+   "air": false,
+   "route": "近鉄特急 → ひかり"
+  },
+  {
+   "pref": "愛知",
+   "station": "名古屋",
+   "lat": 35.1709,
+   "lon": 136.8815,
+   "minutes": 55,
+   "air": false,
+   "route": "近鉄特急"
+  },
+  {
+   "pref": "滋賀",
+   "station": "大津",
+   "lat": 35.0036,
+   "lon": 135.8654,
+   "minutes": 118,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → 琵琶湖線"
+  },
+  {
+   "pref": "京都",
+   "station": "京都",
+   "lat": 34.9858,
+   "lon": 135.7588,
+   "minutes": 98,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "大阪",
+   "station": "大阪",
+   "lat": 34.7025,
+   "lon": 135.4959,
+   "minutes": 70,
+   "air": false,
+   "route": "近鉄特急"
+  },
+  {
+   "pref": "兵庫",
+   "station": "三ノ宮",
+   "lat": 34.6946,
+   "lon": 135.1955,
+   "minutes": 93,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "奈良",
+   "station": "奈良",
+   "lat": 34.6806,
+   "lon": 135.8196,
+   "minutes": 125,
+   "air": false,
+   "route": "近鉄特急 → 大和路快速"
+  },
+  {
+   "pref": "和歌山",
+   "station": "和歌山",
+   "lat": 34.2323,
+   "lon": 135.1911,
+   "minutes": 140,
+   "air": false,
+   "route": "近鉄特急 → くろしお"
+  },
+  {
+   "pref": "鳥取",
+   "station": "鳥取",
+   "lat": 35.494,
+   "lon": 134.2257,
+   "minutes": 230,
+   "air": false,
+   "route": "近鉄特急 → スーパーはくと"
+  },
+  {
+   "pref": "島根",
+   "station": "松江",
+   "lat": 35.4643,
+   "lon": 133.0628,
+   "minutes": 280,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → やくも"
+  },
+  {
+   "pref": "岡山",
+   "station": "岡山",
+   "lat": 34.6664,
+   "lon": 133.918,
+   "minutes": 125,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "広島",
+   "station": "広島",
+   "lat": 34.3976,
+   "lon": 132.4754,
+   "minutes": 160,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "山口",
+   "station": "山口",
+   "lat": 34.174,
+   "lon": 131.4796,
+   "minutes": 227,
+   "air": false,
+   "route": "近鉄特急 → みずほ・さくら → 山口線"
+  },
+  {
+   "pref": "徳島",
+   "station": "徳島",
+   "lat": 34.0741,
+   "lon": 134.551,
+   "minutes": 265,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → マリンライナー → うずしお"
+  },
+  {
+   "pref": "香川",
+   "station": "高松",
+   "lat": 34.3506,
+   "lon": 134.0468,
+   "minutes": 190,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → マリンライナー"
+  },
+  {
+   "pref": "愛媛",
+   "station": "松山",
+   "lat": 33.8364,
+   "lon": 132.7535,
+   "minutes": 300,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → しおかぜ"
+  },
+  {
+   "pref": "高知",
+   "station": "高知",
+   "lat": 33.5669,
+   "lon": 133.5437,
+   "minutes": 285,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → 南風"
+  },
+  {
+   "pref": "福岡",
+   "station": "博多",
+   "lat": 33.5897,
+   "lon": 130.4207,
+   "minutes": 222,
+   "air": false,
+   "route": "近鉄特急 → のぞみ"
+  },
+  {
+   "pref": "佐賀",
+   "station": "佐賀",
+   "lat": 33.264,
+   "lon": 130.2974,
+   "minutes": 270,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → かささぎ"
+  },
+  {
+   "pref": "長崎",
+   "station": "長崎",
+   "lat": 32.752,
+   "lon": 129.8697,
+   "minutes": 312,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → リレーかもめ・かもめ"
+  },
+  {
+   "pref": "熊本",
+   "station": "熊本",
+   "lat": 32.7899,
+   "lon": 130.6888,
+   "minutes": 261,
+   "air": false,
+   "route": "近鉄特急 → みずほ・さくら"
+  },
+  {
+   "pref": "大分",
+   "station": "大分",
+   "lat": 33.2334,
+   "lon": 131.6065,
+   "minutes": 295,
+   "air": false,
+   "route": "近鉄特急 → のぞみ → ソニック"
+  },
+  {
+   "pref": "宮崎",
+   "station": "宮崎",
+   "lat": 31.9157,
+   "lon": 131.4323,
+   "minutes": 447,
+   "air": false,
+   "route": "近鉄特急 → みずほ・さくら → きりしま"
+  },
+  {
+   "pref": "鹿児島",
+   "station": "鹿児島中央",
+   "lat": 31.5838,
+   "lon": 130.5413,
+   "minutes": 307,
+   "air": false,
+   "route": "近鉄特急 → みずほ・さくら"
+  },
+  {
+   "pref": "沖縄",
+   "station": "那覇",
+   "lat": 26.2149,
+   "lon": 127.6792,
+   "minutes": null,
+   "air": false,
+   "route": ""
+  }
+ ],
+ "title_highlight": "『時間距離』"
+}
