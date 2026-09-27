@@ -20,6 +20,7 @@
 """
 import json
 import os
+import sys
 import re
 import subprocess
 import threading
@@ -334,7 +335,15 @@ document.getElementById("tc-btn").addEventListener("click", () => {
             st.className = "status ok";
             st.innerHTML = '完成しました: <a href="/download_zip/' + data.file_name + '">' + data.file_name + ' をダウンロード</a>';
           } else {
-            st.className = "status err"; st.textContent = "エラー: " + (j.error || "") ;
+            st.className = "status err";
+            st.innerHTML = "";
+            const msg = document.createElement("div"); msg.textContent = "エラー: " + (j.error || "");
+            const pre = document.createElement("pre");
+            pre.style.cssText = "white-space:pre-wrap;font-size:11px;max-height:260px;overflow:auto;background:#f3efe6;padding:8px;border-radius:6px;color:#201c16";
+            pre.textContent = (j.log || "(ログなし)").split("
+").slice(-40).join("
+");
+            st.appendChild(msg); st.appendChild(pre);
           }
         }
       });
@@ -757,7 +766,8 @@ batch_jobs = {}
 
 
 def _run_timecarto_batch(job_id, mode, only, fast, zip_name):
-    cmd = ["python3", "tools/render_timecarto_all.py", "--mode", mode,
+    # Webサーバーと同じPython(仮想環境を含む)で実行する
+    cmd = [sys.executable, "tools/render_timecarto_all.py", "--mode", mode,
            "--zip", str(OUTPUT_DIR / zip_name), "--skip-existing"]
     if only:
         cmd += ["--only", only]

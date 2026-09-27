@@ -78,6 +78,30 @@ def main():
 
     os.chdir(ROOT)
     os.makedirs(args.out_dir, exist_ok=True)
+
+    # 事前チェック(ここで止まれば、原因がそのまま表示される)
+    import shutil
+    problems = []
+    if not shutil.which("ffmpeg"):
+        problems.append("ffmpeg が見つかりません → sudo apt-get install -y ffmpeg")
+    if not Path("race_video/time_cartogram.py").exists():
+        problems.append("race_video/time_cartogram.py がありません(アップロード漏れ)")
+    if not Path(args.configs).exists():
+        problems.append(f"{args.configs}/ がありません(configs/timecarto のアップロード漏れ)")
+    try:
+        import PIL  # noqa: F401
+    except ImportError:
+        problems.append(f"Pillow が入っていません({sys.executable}) → pip install -r requirements.txt")
+    try:
+        from race_video import fonts as _f
+        _f.resolve()
+    except Exception as e:  # noqa: BLE001
+        problems.append(f"日本語フォント: {e}")
+    if problems:
+        print("生成を始める前に問題が見つかりました:")
+        for p in problems:
+            print("  -", p)
+        return 1
     modes = ["rail", "best"] if args.mode == "both" else [args.mode]
     only = [s.strip() for s in args.only.split(",") if s.strip()]
     prefs = [p for p in PREFS if not only or p in only]
@@ -113,7 +137,10 @@ def main():
                 print(f"[{done + len(failed)}/{len(jobs)}] OK   {out}  ({sec:.0f}秒)", flush=True)
             except Exception as e:  # noqa: BLE001
                 failed.append((c, e))
-                print(f"[{done + len(failed)}/{len(jobs)}] FAIL {c}: {e}", flush=True)
+                print(f"[{done + len(failed)}/{len(jobs)}] FAIL {c}: {type(e).__name__}: {e}", flush=True)
+                tb = getattr(e, "__cause__", None)
+                if tb is not None:
+                    print(str(tb)[-1500:], flush=True)
 
     if args.zip:
         zpath = Path(args.zip)
